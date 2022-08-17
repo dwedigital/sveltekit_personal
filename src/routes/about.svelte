@@ -1,4 +1,8 @@
 <!-- src/routes/about.svelte -->
+<script context="module">
+  export const prerender = true;
+</script>
+
 <svelte:head>
    <title>About</title>
 </svelte:head>
