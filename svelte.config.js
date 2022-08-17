@@ -1,16 +1,16 @@
 import adapter from '@sveltejs/adapter-auto';
 import preprocess from "svelte-preprocess";
-import vercel from '@sveltejs/adapter-vercel';
+import adapter from '@sveltejs/adapter-netlify';
+
 
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
-		adapter: vercel({
+		adapter: adapter({
 			edge:false,
-			exterbal:[],
-			split:false,
-		})
+			split:true,
+		}),
 	},
 	preprocess: [preprocess({
 		postcss: true,
