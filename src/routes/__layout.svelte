@@ -13,15 +13,12 @@
 	</div>
 </nav>
 
-<main>
-	<div class="container"><slot /></div>
+<main class="flex justify-center">
+	<div class="container flex justify-center w-full my-10"><slot /></div>
 </main>
 
 <footer>DWE Digital</footer>
 
 <style>
-    .container {
-       max-width: 1400px;
-       margin: 50px auto;
-   }
+
 </style>
