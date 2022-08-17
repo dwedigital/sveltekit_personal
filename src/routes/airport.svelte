@@ -1,15 +1,12 @@
 <script context="module">
 	export async function load({ fetch }) {
-		const response = await fetch(
-			'https://europe-west2-vibrant-grammar-254613.cloudfunctions.net/flights'
-		);
-		const flights = await response.json();
-		return { props: { flights } };
+		const res = await fetch("/api/flights");
+		return { props: { flights: await res.json()} };
 	}
 </script>
 
 <script>
-	import Flight from '../components/Flight.svelte';
+	import Flight from '../components/flight.svelte';
 	import moment from 'moment';
 	export let flights;
 	const today = moment().format('DD-MM-YY');
@@ -26,7 +23,7 @@
 
 			
 			<ul
-				class="items-center w-full text-sm font-medium text-gray-900 bg-white rounded-md border border-gray-200 sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+				class="items-center w-full text-sm font-medium text-gray-900 bg-slate-500 rounded-md border border-gray-200 sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white"
 			>
 				<li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
 					<div class="flex items-center pl-3">
@@ -87,7 +84,7 @@
 				{#if moment(flight.Date).format('DD-MM-YY') == today}
 					{#if !landed && flight.Status.toLowerCase().includes('land')}
 						<span />
-					{:else if !scheduled && flight.Status.toLowerCase().includes('scheduled')}
+					{:else if !scheduled && (flight.Status.toLowerCase().includes('scheduled') || flight.Status.toLowerCase().includes('estimated'))}
                         <span />
                     {:else if !cancelled && flight.Status.toLowerCase().includes('cancel')}
                         <span />
