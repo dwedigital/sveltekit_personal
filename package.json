@@ -30,6 +30,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"moment": "^2.29.4"
+		"moment": "^2.29.4",
+		"svelte": "^3.44.0"
 	}
 }
