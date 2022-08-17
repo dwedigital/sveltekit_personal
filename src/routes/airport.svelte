@@ -6,7 +6,7 @@
 </script>
 
 <script>
-	import Flight from '../components/flight.svelte';
+	import Flight from '../components/Flight.svelte';
 	import moment from 'moment';
 	export let flights;
 	const today = moment().format('DD-MM-YY');
