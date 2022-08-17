@@ -1,4 +1,5 @@
 <script context="module">
+
 	export async function load({ fetch }) {
 		const res = await fetch("/api/flights");
 		return { props: { flights: await res.json()} };
