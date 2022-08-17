@@ -1,7 +1,7 @@
 export async function GET() {
 	const options = {
 		headers: {
-			Authorization: `Bearer ${import.meta.env.VITE_STRAPI_API_KEY}`
+			Authorization: `Bearer ${process.env.VITE_STRAPI_API_KEY}`
 		}
 	};
 	const response = await fetch(
